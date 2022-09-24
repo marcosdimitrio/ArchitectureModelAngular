@@ -1,0 +1,5 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>{{ data.message }}</div>
+<div mat-dialog-actions>
+    <button mat-button type="button" *ngFor="let option of data.options" (click)="onClose(option)">{{option}}</button>
+</div>
