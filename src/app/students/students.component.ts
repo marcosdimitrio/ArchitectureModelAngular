@@ -21,8 +21,7 @@ export class StudentsComponent {
     dataSource = new PaginationDataSource<Student, StudentQuery>(
         (request: PageRequest<Student>, query: StudentQuery) => this.studentsService.page(request, query),
         { property: 'name', order: 'asc' },
-        { search: '', registeredOn: undefined },
-        2
+        { search: '', registeredOn: undefined }
     )
 
     constructor(private studentsService: StudentsService) { }
