@@ -12,7 +12,7 @@ export class StudentsService {
 
     constructor(private http: HttpClient) { }
 
-    page(request: PageRequest<Student>, query: StudentQuery): Observable<Page<Student>> {
+    get(request: PageRequest<Student>, query: StudentQuery): Observable<Page<Student>> {
         const httpParams = this.getHttpParamsForSieve(request, query);
 
         return this.http.get<Page<Student>>('/api/students', {
@@ -20,7 +20,7 @@ export class StudentsService {
         });
     }
 
-    getHttpParamsForSieve(request: PageRequest<Student>, query: StudentQuery): HttpParams {
+    private getHttpParamsForSieve(request: PageRequest<Student>, query: StudentQuery): HttpParams {
         const sorts = this.getSort(request.sort);
         const filters = this.getFilters(query);
 

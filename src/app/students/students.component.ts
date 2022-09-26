@@ -19,7 +19,7 @@ export class StudentsComponent {
     displayedColumns = ['id', 'name', 'email', 'registeredOn']
 
     dataSource = new PaginationDataSource<Student, StudentQuery>(
-        (request: PageRequest<Student>, query: StudentQuery) => this.studentsService.page(request, query),
+        (request: PageRequest<Student>, query: StudentQuery) => this.studentsService.get(request, query),
         { property: 'name', order: 'asc' },
         { search: '', registeredOn: undefined }
     )
