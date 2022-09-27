@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatSort, Sort } from '@angular/material/sort';
+import { Component } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 
 import { PageRequest } from '../core/pagination-datasource/page';
 import { PaginationDataSource } from '../core/pagination-datasource/pagination-datasource';
@@ -14,8 +14,6 @@ import { StudentsService } from './shared/students.service';
     styleUrls: ['./students.component.scss']
 })
 export class StudentsComponent {
-    @ViewChild(MatSort, { static: true }) sort!: MatSort;
-
     displayedColumns = ['id', 'name', 'email', 'registeredOn']
 
     dataSource = new PaginationDataSource<Student, StudentQuery>(
