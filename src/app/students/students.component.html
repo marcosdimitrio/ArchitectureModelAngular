@@ -55,7 +55,7 @@
     </div>
 
     <mat-paginator *ngIf="dataSource.page$ | async as page" [length]="page.totalElements" [pageSize]="page.size"
-        [pageIndex]="page.number" [hidePageSize]="true" (page)="dataSource.fetch($event.pageIndex)">
+        [pageIndex]="page.number-1" [hidePageSize]="true" (page)="dataSource.fetch($event.pageIndex)">
     </mat-paginator>
 
 </div>
