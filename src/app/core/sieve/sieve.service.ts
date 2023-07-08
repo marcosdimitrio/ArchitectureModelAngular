@@ -9,7 +9,7 @@ export class SieveService {
         const sorts = this.getSort(request.sort);
 
         return new HttpParams()
-            .set('page', request.page)
+            .set('page', request.page + 1)
             .set('pageSize', request.size)
             .set('sorts', sorts)
             .set('filters', filters);

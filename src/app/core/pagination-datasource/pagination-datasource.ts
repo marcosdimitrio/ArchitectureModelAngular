@@ -21,9 +21,7 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
         initialSort: Sort<T>,
         initialQuery: Q,
         public pageSize = 10,
-        public initialPage = 1,
     ) {
-        let firstCall = true;
         this.query = new BehaviorSubject<Q>(initialQuery);
         this.sort = new BehaviorSubject<Sort<T>>(initialSort);
         const param$ = combineLatest([
@@ -36,9 +34,8 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
         this.loading$ = this.loading.asObservable();
         this.page$ = param$.pipe(
             switchMap(([query, sort]) => this.pageNumber.pipe(
-                startWith(initialPage && firstCall ? initialPage : 1),
+                startWith(0),
                 delay(0),
-                tap(() => firstCall = false),
                 switchMap(page => this.endpoint({ page, sort, size: this.pageSize }, query)
                     .pipe(indicate(this.loading))
                 )
