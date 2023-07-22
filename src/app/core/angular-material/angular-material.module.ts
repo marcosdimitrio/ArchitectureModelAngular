@@ -43,12 +43,10 @@ import { MatTableModule } from '@angular/material/table';
 
 import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
     exports: [
-        FlexLayoutModule,
         CdkTableModule,
         MatAutocompleteModule,
         MatButtonModule,

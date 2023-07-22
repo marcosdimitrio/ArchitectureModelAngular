@@ -10,7 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { StudentsModule } from './students/students.module';
 import { LayoutModule } from './layout/layout.module';
-import { CoreModule } from '@angular/flex-layout';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
     declarations: [
